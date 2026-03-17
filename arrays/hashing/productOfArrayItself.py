@@ -17,3 +17,20 @@ class Solution:
             suffix *= nums[i]
 
         return result
+
+
+class Solution:
+    def productExceptSelf(self, nums: list[int]) -> list[int]:
+        result = [1] * len(nums)
+
+        prefix = 1
+        for i, num in enumerate(nums):
+            result[i] *= prefix
+            prefix *= num
+
+        suffix = 1
+        for i in reversed(range(len(nums))):
+            result[i] *= suffix
+            suffix *= nums[i]
+
+        return result
